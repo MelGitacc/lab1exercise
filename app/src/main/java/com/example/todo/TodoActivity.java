@@ -46,24 +46,25 @@ public class TodoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                    mTodoIndex = (mTodoIndex + 1) % mTodos.length;
-                    TodoTextView.setText(mTodos[mTodoIndex]);
+                mTodoIndex = (mTodoIndex + 1) % mTodos.length;
+                TodoTextView.setText(mTodos[mTodoIndex]);
 
             }
         });
+
         buttonPrev.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-        if (mTodoIndex == 1) {
-                    mTodoIndex ++;
+
+                    mTodoIndex = (mTodoIndex - 1) % mTodos.length;
+
+                if(mTodoIndex == -1){
+                    mTodoIndex = mTodos.length - 1 ;
                     TodoTextView.setText(mTodos[mTodoIndex]);
                 }
                 else {
-            mTodoIndex = (mTodoIndex - 1) % mTodos.length;
-            TodoTextView.setText(mTodos[mTodoIndex]);
-
-
-        }
+                    TodoTextView.setText(mTodos[mTodoIndex]);
+                }
             }
         });
     }
